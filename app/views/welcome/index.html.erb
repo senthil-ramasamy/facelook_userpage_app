@@ -1,2 +1,10 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to FaceLook</h1>
+<% if user_signed_in? %>
+	 <div class="avatar-position">
+          <%= image_tag @user.avatar.url %>
+      </div>
+	
+	
+<% else %>
+	<p><img src = "http://i.indiaglitz.com/tamil/news/santhanam17613_m1.jpg"></p>
+<% end %>

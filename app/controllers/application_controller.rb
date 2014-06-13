@@ -5,7 +5,23 @@
 
 
 class ApplicationController < ActionController::Base
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+def create
+  @user = User.create( user_params )
+end
+
+private
+
+# Use strong_parameters for attribute whitelisting
+# Be sure to update your create() and update() controller methods.
+
+def user_params
+  params.require(:user).permit(:avatar)
+end
+
+
+
+before_filter :configure_permitted_parameters, if: :devise_controller?
 
   protected
 
@@ -14,5 +30,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
+
+	
  protect_from_forgery with: :exception
 end
