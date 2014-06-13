@@ -6,6 +6,8 @@ gem 'rails', '4.1.1'
 gem 'devise'
 gem 'zurb-foundation'
 gem 'foundation-rails'
+gem 'byebug'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

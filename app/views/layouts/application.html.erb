@@ -24,7 +24,7 @@
     <ul class="right">
       <% if user_signed_in? %>
           <li class="divider"></li>
-          <li><h4><center><font color = "white" >Welcome <%= current_user.email %>!</li></h4></font></center>
+          <li><h4><center><font color = "white" >Howdy,<%= current_user.username %>!</li></h4></font></center>
           <li class="divider"></li>
           <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <li class="divider"></li>
