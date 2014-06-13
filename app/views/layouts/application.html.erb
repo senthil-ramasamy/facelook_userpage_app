@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "FaceLook", new_user_registration_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <% if user_signed_in? %>
+          <li class="divider"></li>
+          <li><h4><center><font color = "white" >Welcome <%= current_user.email %>!</li></h4></font></center>
+          <li class="divider"></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <li class="divider"></li>
+      <% else %>
+          <li class="divider"></li>
+          <li><%= link_to 'Register', new_user_registration_path %> </li>
+          <li class="divider"></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <li class="divider"></li>
+          <% end %>
+   </ul>
+  </div>
+</nav>
+
+
+    <div class="row">
+    <div class="large-8 columns">
+         
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+      <%= yield %>
+    </div>
+
+    <div class="large-4 columns">
+      <h2>About FaceLook</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+    
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
