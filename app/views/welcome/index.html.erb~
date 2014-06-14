@@ -1,6 +1,6 @@
-<h1>Welcome to FaceLook</h1>
+<center><h1>Welcome to FaceLook</h1>
 <% if user_signed_in? %>
-	 
+	 <br/><h1>hi, <%= current_user.username %></h1>
 	 <%= link_to 'Edit Profile', edit_user_registration_path, class: "button radius"  %>
 
 <center><%= image_tag current_user.avatar.url %></center>
